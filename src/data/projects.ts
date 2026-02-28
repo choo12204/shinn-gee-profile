@@ -120,7 +120,8 @@ export const projects: ProjectData[] = [
       "12 Instagram post templates + 4 Story templates",
       "Brand guidelines PDF with usage dos and don'ts"
     ],
-    process: "The biggest challenge was balancing the client's desire for a "handcrafted" feel with the need for a brand system that would scale cleanly to digital applications. The solution was a hybrid approach — an organic hand-drawn logo mark paired with a very structured geometric type system.",
+    process: "The biggest challenge was balancing the client's desire for a \"handcrafted\" feel with the need for a brand system that would scale cleanly to digital applications. The solution was a hybrid approach — an organic hand-drawn logo mark paired with a very structured geometric type system.",
+
     processExtra: "Multiple rounds of feedback and refinement were conducted through Figma's sharing and commenting tools, keeping the client closely involved throughout the design process.",
     githubLink: "https://github.com/choo12204"
   }
