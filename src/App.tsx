@@ -86,7 +86,7 @@ export default function App() {
         <div className="section-label" aria-hidden="true">ABOUT</div>
         <div className="section-title">About Me</div>
         <div className="about-grid">
-          <div className="about-text">
+          <div className="about-text" style={{ textAlign: 'justify' }}>
             <p>I’m a <em>Robotics Engineering MEng</em> student at the University of Bath who builds systems where software, electronics, and mechanics meet.</p>
             <p>My focus is <em>control systems, embedded robotics, and autonomous platforms</em>. I design and simulate dynamic systems, implement control algorithms in C++ and MATLAB, and bring them to life on real hardware — from ROS2 robotic arms to closed-loop prosthetic devices and vehicle dynamic simulation models.</p>
             <p>Beyond technical depth, I lead and build. I’ve directed multi-university sporting events with 250+ participants and contributed to high-performance teams like Team Bath Racing Electric. I care about systems thinking, execution under constraints, and building things that work reliably — not just in simulation, but in the real world.</p>
@@ -218,33 +218,32 @@ export default function App() {
         </div>
       </section>
 
-
       {/* ═══════════════ CONTACT ═══════════════ */}
       <section className="page-section" id="contact">
         <div className="section-label" aria-hidden="true">CONTACT</div>
         <div className="section-title">Get In Touch</div>
         <div className="contact-wrap">
-          <p className="contact-intro">I'm always open to new opportunities, collaborations, or just a good conversation. Drop me a line through any of the channels below.</p>
+          <p className="contact-intro">If you're working on robotics, control systems, or autonomous platforms and value thoughtful engineering execution, I’d be glad to connect. Whether it’s collaboration, research, internships, or building ambitious systems together, feel free to reach out and start a conversation.</p>
           <div className="contact-links">
-            <a href="mailto:shinngee@email.com" className="contact-link">
+            <a href="mailto:mail@shinn.uk" className="contact-link">
               <span className="icon">✉️</span>
               <div className="details">
                 <div className="ctype">Email</div>
-                <div className="cval">shinngee@email.com</div>
+                <div className="cval">mail@shinn.uk</div>
               </div>
             </a>
-            <a href="https://linkedin.com/in/shinngee" target="_blank" rel="noopener noreferrer" className="contact-link">
+            <a href="https://www.linkedin.com/in/choosg" target="_blank" rel="noopener noreferrer" className="contact-link">
               <span className="icon">💼</span>
               <div className="details">
                 <div className="ctype">LinkedIn</div>
-                <div className="cval">linkedin.com/in/shinngee</div>
+                <div className="cval">linkedin.com/in/choosg</div>
               </div>
             </a>
-            <a href="https://github.com/shinngee" target="_blank" rel="noopener noreferrer" className="contact-link">
+            <a href="https://github.com/choo12204" target="_blank" rel="noopener noreferrer" className="contact-link">
               <span className="icon">🐙</span>
               <div className="details">
                 <div className="ctype">GitHub</div>
-                <div className="cval">github.com/shinngee</div>
+                <div className="cval">github.com/choo12204</div>
               </div>
             </a>
           </div>
