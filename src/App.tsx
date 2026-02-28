@@ -87,26 +87,27 @@ export default function App() {
         <div className="section-title">About Me</div>
         <div className="about-grid">
           <div className="about-text">
-            <p>Hey, I'm <em>Shinn Gee</em> — a developer and designer who believes great products live at the intersection of clean code and thoughtful design.</p>
-            <p>I build fast, accessible, and visually striking experiences for the web. Whether it's a polished UI, a full-stack application, or a creative side project — I care deeply about the details.</p>
-            <p>When I'm not coding, you'll find me exploring design trends, gaming, or hunting for the best coffee in town.</p>
+            <p>I’m a <em>Robotics Engineering MEng</em> student at the University of Bath who builds systems where software, electronics, and mechanics meet.</p>
+            <p>My focus is <em>control systems, embedded robotics, and autonomous platforms</em>. I design and simulate dynamic systems, implement control algorithms in C++ and MATLAB, and bring them to life on real hardware — from ROS2 robotic arms to closed-loop prosthetic devices and vehicle dynamic simulation models.</p>
+            <p>Beyond technical depth, I lead and build. I’ve directed multi-university sporting events with 250+ participants and contributed to high-performance teams like Team Bath Racing Electric. I care about systems thinking, execution under constraints, and building things that work reliably — not just in simulation, but in the real world.</p>
+            <p>I’m working toward becoming a robotics engineer who can design, model, control, and deploy intelligent physical systems end-to-end.</p>
           </div>
           <div className="about-facts">
             <div className="fact">
-              <div className="label">Based In</div>
-              <div className="value">Malaysia</div>
+              <div className="label">University</div>
+              <div className="value">University of Bath</div>
             </div>
             <div className="fact">
               <div className="label">Role</div>
-              <div className="value">Frontend Developer & UI Designer</div>
+              <div className="value">Robotics Engineering MEng</div>
             </div>
             <div className="fact">
-              <div className="label">Experience</div>
-              <div className="value">3+ Years</div>
+              <div className="label">Focus</div>
+              <div className="value">Control, Embedded & ROS2</div>
             </div>
             <div className="fact">
-              <div className="label">Available For</div>
-              <div className="value">Freelance & Full-time Roles</div>
+              <div className="label">Leadership</div>
+              <div className="value">Multi-University Event Director</div>
             </div>
           </div>
         </div>
@@ -119,27 +120,27 @@ export default function App() {
         <div className="projects-grid">
           <div className="project-card">
             <div className="proj-num">01</div>
-            <h3>Portfolio Website</h3>
-            <p>A personal portfolio built from scratch with custom animations, dark/light theming, and a bold typographic identity.</p>
-            <div className="proj-tags"><span>HTML</span><span>CSS</span><span>JS</span></div>
+            <h3>5-DOF Robotic Arm</h3>
+            <p>ROS2 anchor featuring URDF/Xacro modelling and kinematic validation. Planned MoveIt integration for trajectory control and simulation validation.</p>
+            <div className="proj-tags"><span>ROS2</span><span>URDF</span><span>Gazebo</span><span>C++</span></div>
           </div>
           <div className="project-card">
             <div className="proj-num">02</div>
-            <h3>E-Commerce Dashboard</h3>
-            <p>A responsive admin dashboard with real-time charts, product management, and a clean minimal UI for an online store.</p>
-            <div className="proj-tags"><span>React</span><span>Tailwind</span><span>Node.js</span></div>
+            <h3>Vehicle Dynamics Model</h3>
+            <p>Simulink model for Team Bath Racing Electric. G-G Diagram generation, sensitivity analysis, and driver input dynamic response modelling.</p>
+            <div className="proj-tags"><span>Simulink</span><span>MATLAB</span><span>TBRE</span></div>
           </div>
           <div className="project-card">
             <div className="proj-num">03</div>
-            <h3>Mobile Weather App</h3>
-            <p>A sleek weather app with live forecasts, animated backgrounds based on conditions, and location-aware data.</p>
-            <div className="proj-tags"><span>React Native</span><span>API</span></div>
+            <h3>Prosthetic Wristband</h3>
+            <p>Closed-loop device for Team Bath Prosthetics. ESP32-based real-time control, signal filtering (FSR), and cloud telemetry coordination.</p>
+            <div className="proj-tags"><span>ESP32</span><span>Signal Processing</span><span>Cloud</span></div>
           </div>
           <div className="project-card">
             <div className="proj-num">04</div>
-            <h3>Brand Identity System</h3>
-            <p>A complete visual identity for a local café — logo, typography, colour palette, and social media templates.</p>
-            <div className="proj-tags"><span>Figma</span><span>Illustrator</span></div>
+            <h3>Self-Balancing Robot</h3>
+            <p>Control foundation project involving IMU integration, PID tuning, and stability debugging for real-world hardware performance.</p>
+            <div className="proj-tags"><span>PID Control</span><span>IMU</span><span>Hardware</span></div>
           </div>
         </div>
       </section>
@@ -150,57 +151,73 @@ export default function App() {
         <div className="section-title">Skills</div>
         <div className="skills-container">
           <div className="skill-group">
-            <h3>Frontend</h3>
+            <h3>Robotics & Control Systems</h3>
             <div className="skill-bars">
-              <div className="skill-item" data-pct="0.92">
-                <span className="skill-name">HTML & CSS</span>
+              <div className="skill-item" data-pct="0.90">
+                <span className="skill-name">ROS2 (Gazebo, RViz)</span>
                 <div className="skill-bar-track"><div className="skill-bar-fill"></div></div>
-                <span className="skill-pct">92%</span>
+                <span className="skill-pct">90%</span>
+              </div>
+              <div className="skill-item" data-pct="0.88">
+                <span className="skill-name">MATLAB/Simulink</span>
+                <div className="skill-bar-track"><div className="skill-bar-fill"></div></div>
+                <span className="skill-pct">88%</span>
               </div>
               <div className="skill-item" data-pct="0.85">
-                <span className="skill-name">JavaScript</span>
+                <span className="skill-name">C++ for Control</span>
                 <div className="skill-bar-track"><div className="skill-bar-fill"></div></div>
                 <span className="skill-pct">85%</span>
               </div>
+              <div className="skill-item" data-pct="0.82">
+                <span className="skill-name">PID Tuning & MPCC</span>
+                <div className="skill-bar-track"><div className="skill-bar-fill"></div></div>
+                <span className="skill-pct">82%</span>
+              </div>
+            </div>
+          </div>
+          <div className="skill-group">
+            <h3>Embedded & Electronics</h3>
+            <div className="skill-bars">
+              <div className="skill-item" data-pct="0.85">
+                <span className="skill-name">ESP32 & PCB Design</span>
+                <div className="skill-bar-track"><div className="skill-bar-fill"></div></div>
+                <span className="skill-pct">85%</span>
+              </div>
+              <div className="skill-item" data-pct="0.80">
+                <span className="skill-name">OrCAD & Thermal Layout</span>
+                <div className="skill-bar-track"><div className="skill-bar-fill"></div></div>
+                <span className="skill-pct">80%</span>
+              </div>
               <div className="skill-item" data-pct="0.78">
-                <span className="skill-name">React</span>
+                <span className="skill-name">Signal Filtering</span>
                 <div className="skill-bar-track"><div className="skill-bar-fill"></div></div>
                 <span className="skill-pct">78%</span>
               </div>
             </div>
           </div>
           <div className="skill-group">
-            <h3>Design</h3>
+            <h3>Modelling & Software</h3>
             <div className="skill-bars">
-              <div className="skill-item" data-pct="0.88">
-                <span className="skill-name">Figma</span>
+              <div className="skill-item" data-pct="0.85">
+                <span className="skill-name">Python & ML</span>
                 <div className="skill-bar-track"><div className="skill-bar-fill"></div></div>
-                <span className="skill-pct">88%</span>
-              </div>
-              <div className="skill-item" data-pct="0.72">
-                <span className="skill-name">Illustrator</span>
-                <div className="skill-bar-track"><div className="skill-bar-fill"></div></div>
-                <span className="skill-pct">72%</span>
-              </div>
-            </div>
-          </div>
-          <div className="skill-group">
-            <h3>Backend & Tools</h3>
-            <div className="skill-bars">
-              <div className="skill-item" data-pct="0.70">
-                <span className="skill-name">Node.js</span>
-                <div className="skill-bar-track"><div className="skill-bar-fill"></div></div>
-                <span className="skill-pct">70%</span>
+                <span className="skill-pct">85%</span>
               </div>
               <div className="skill-item" data-pct="0.80">
-                <span className="skill-name">Git & GitHub</span>
+                <span className="skill-name">Linux (Arch) & Git</span>
                 <div className="skill-bar-track"><div className="skill-bar-fill"></div></div>
                 <span className="skill-pct">80%</span>
+              </div>
+              <div className="skill-item" data-pct="0.75">
+                <span className="skill-name">Ansys HFSS & Numerical</span>
+                <div className="skill-bar-track"><div className="skill-bar-fill"></div></div>
+                <span className="skill-pct">75%</span>
               </div>
             </div>
           </div>
         </div>
       </section>
+
 
       {/* ═══════════════ CONTACT ═══════════════ */}
       <section className="page-section" id="contact">
