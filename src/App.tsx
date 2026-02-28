@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from "react";
+import About from "@/components/About";
+import Projects from "@/components/Projects";
+import Contact from "@/components/Contact";
 import "./App.css";
 
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDark, setIsDark] = useState(true);
 
+  // Apply the data-theme attribute to the html element whenever isDark changes
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", isDark ? "dark" : "light");
   }, [isDark]);
@@ -16,7 +20,7 @@ export default function App() {
   return (
     <div className="min-h-screen">
       <link 
-        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Bebas+Neue&family=Cormorant+Garamond:wght@300;400&display=swap" 
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Bebas+Neue&family=Cormorant+Garamond:wght@300;400;700&display=swap" 
         rel="stylesheet"
       />
 
@@ -57,6 +61,13 @@ export default function App() {
           />
         </div>
       </section>
+
+      {/* Adding back the sections */}
+      <div className="relative z-10">
+        <About />
+        <Projects />
+        <Contact />
+      </div>
     </div>
   );
 }
