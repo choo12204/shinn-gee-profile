@@ -3,9 +3,9 @@ import './About.css';
 
 const About: React.FC = () => {
   const skills = [
-    'React', 'TypeScript', 'Node.js', 
-    'GraphQL', 'Next.js', 'PostgreSQL', 
-    'Docker', 'AWS', 'UI/UX Design'
+    'Python', 'C++', 'MATLAB/Simulink', 
+    'OrCAD/PCB Design', 'LTspice', 'Autodesk Inventor', 
+    'Linux (Arch)', 'Embedded Systems', 'Signal Processing'
   ];
 
   return (
@@ -15,14 +15,14 @@ const About: React.FC = () => {
           <div className="about-text">
             <h2 className="section-title">About Me</h2>
             <p>
-              I am a dedicated software engineer with a passion for building robust and scalable 
-              applications. My journey in the tech world has been driven by a constant 
-              desire to learn and innovate. 
+              I'm a passionate and curious MEng Robotics Engineering student at the University of Bath. 
+              My journey blends creativity with technical problem-solving, from building quadruped robots 
+              to designing high-performance PCBs and embedded systems.
             </p>
             <p>
-              With several years of experience in full-stack development, I specialize in 
-              bridging the gap between design and technology. I believe in writing 
-              clean, maintainable code that solves real-world problems.
+              I thrive at the intersection of mechanical design, electronics, and software. 
+              Through hands-on projects in CAD, control systems, power electronics, and machine learning, 
+              I've developed a solid foundation in designing and simulating complex systems.
             </p>
           </div>
           <div className="about-skills">

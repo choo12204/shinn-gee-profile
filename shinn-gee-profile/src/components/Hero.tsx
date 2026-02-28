@@ -7,7 +7,7 @@ const Hero: React.FC = () => {
       <div className="hero-content container">
         <span className="hero-tagline">Software Engineer & Designer</span>
         <h1 className="hero-title">
-          Crafting digital <br /> experiences with Shinn Gee
+          Engineering the <br /> future of robotics
         </h1>
         <p className="hero-description">
           I build high-performance, accessible, and visually stunning web applications. 

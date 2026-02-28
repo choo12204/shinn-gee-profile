@@ -4,22 +4,28 @@ import './Projects.css';
 const Projects: React.FC = () => {
   const projects = [
     {
-      title: 'Project Alpha',
-      description: 'A cutting-edge SaaS platform built with React and Node.js.',
-      tags: ['React', 'TypeScript', 'Node.js', 'PostgreSQL'],
+      title: 'Self-Balancing Robot',
+      description: 'Two-wheeled robot using Arduino, MPU6050, and PID control. Simulated in Simulink before hardware implementation.',
+      tags: ['Arduino', 'C++', 'PID Control', 'Simulink'],
       id: 1
     },
     {
-      title: 'Project Beta',
-      description: 'An AI-driven data visualization tool for large-scale datasets.',
-      tags: ['Python', 'D3.js', 'GraphQL', 'AWS'],
+      title: 'Multilayer PCB Design',
+      description: 'Designed a 4-layer microphone amplifier with dedicated GND/Power planes for noise reduction using OrCAD.',
+      tags: ['OrCAD', 'DFM', 'Thermal Design', 'Signal Integrity'],
       id: 2
     },
     {
-      title: 'Project Gamma',
-      description: 'A mobile-first e-commerce application with real-time inventory.',
-      tags: ['Next.js', 'Stripe', 'Tailwind', 'Redis'],
+      title: '1D Heat Transfer Simulation',
+      description: 'Transient thermal behavior analysis using explicit and implicit numerical methods in MATLAB.',
+      tags: ['MATLAB', 'Thermodynamics', 'Numerical Methods'],
       id: 3
+    },
+    {
+      title: 'ML-based PID Prediction',
+      description: 'Multi-output regression model using scikit-learn to predict optimal control system parameters.',
+      tags: ['Python', 'Machine Learning', 'Scikit-learn', 'Control Theory'],
+      id: 4
     }
   ];
 
