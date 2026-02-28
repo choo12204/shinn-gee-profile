@@ -123,12 +123,12 @@ export default function Component() {
 
   const menuItems = [
     { label: "HOME", href: "#", highlight: true },
-    { label: "ABOUT", href: "#" },
-    { label: "PROJECTS", href: "#" },
+    { label: "ABOUT", href: "#about" },
+    { label: "PROJECTS", href: "#projects" },
     { label: "EXPERIENCE", href: "#" },
     { label: "EDUCATION", href: "#" },
     { label: "WRITING", href: "#" },
-    { label: "CONTACT", href: "#" },
+    { label: "CONTACT", href: "#contact" },
   ];
 
   return (

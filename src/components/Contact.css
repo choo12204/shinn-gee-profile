@@ -27,7 +27,7 @@
 
 .contact-link:hover {
   border-color: var(--accent-color);
-  background-color: rgba(59, 130, 246, 0.05);
+  background-color: rgba(195, 228, 29, 0.05);
 }
 
 .footer {
