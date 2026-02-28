@@ -85,6 +85,21 @@ async function getProcessInfo(pid: number): Promise<{
   command: string;
 }> {
   try {
+    if (os.platform() === 'win32') {
+      const powershellCommand = `Get-CimInstance Win32_Process -Filter "ProcessId = ${pid}" | Select-Object ParentProcessId,Name,CommandLine | ConvertTo-Json -Compress`;
+      const { stdout } = await execAsync(`powershell "${powershellCommand}"`);
+      if (!stdout.trim()) {
+        return { parentPid: 0, name: '', command: '' };
+      }
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+      const proc: RawProcessInfo = JSON.parse(stdout);
+      return {
+        parentPid: proc.ParentProcessId || 0,
+        name: proc.Name || '',
+        command: proc.CommandLine || '',
+      };
+    }
+
     const command = `ps -o ppid=,command= -p ${pid}`;
     const { stdout } = await execAsync(command);
     const trimmedStdout = stdout.trim();

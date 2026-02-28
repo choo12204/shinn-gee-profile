@@ -147,15 +147,7 @@ export function detectIde(
     };
   }
 
-  // Only VS Code, Sublime Text and JetBrains integrations are currently supported.
-  if (
-    process.env['TERM_PROGRAM'] !== 'vscode' &&
-    process.env['TERM_PROGRAM'] !== 'sublime' &&
-    !isJetBrains()
-  ) {
-    return undefined;
-  }
-
+  // Only VS Code, Antigravity, Sublime Text and JetBrains integrations are currently supported.
   const ide = detectIdeFromEnv();
   return isJetBrains()
     ? verifyJetBrains(ide, ideProcessInfo)
