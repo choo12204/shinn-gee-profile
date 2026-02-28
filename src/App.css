@@ -2,9 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
 :root {
-  --bg-color: #080808;
-  --text-color: #e8e8e8;
+  --bg: #080808;
+  --fg: #e8e8e8;
   --neon: #c6f135;
   --neon-glow: rgba(198,241,53,0.6);
   --drawer-bg: rgba(6,6,6,0.97);
@@ -13,50 +15,197 @@
   --toggle-bg: #2a2a2a;
   --toggle-fg: #e8e8e8;
   --sig-color: #e8e8e8;
-  --card-bg: #1a1a1a;
-  --border-color: #2a2a2a;
-  --accent-color: #c6f135;
+}
+
+[data-theme="light"] {
+  --bg: #f2f2ee;
+  --fg: #111;
+  --neon: #6ab800;
+  --neon-glow: rgba(106,184,0,0.45);
+  --drawer-bg: rgba(242,242,238,0.97);
+  --drawer-text: #111;
+  --bar-color: #111;
+  --toggle-bg: #ccc;
+  --toggle-fg: #111;
+  --sig-color: #111;
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  background-color: var(--bg-color);
-  color: var(--text-color);
+  background: var(--bg);
+  color: var(--fg);
   font-family: 'Cormorant Garamond', serif;
+  min-height: 100vh;
   overflow-x: hidden;
+  transition: background 0.4s, color 0.4s;
+}
+
+/* ── HAMBURGER ── */
+.menu-btn {
+  position: fixed;
+  top: 26px; left: 26px;
+  z-index: 100;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 6px;
+}
+.menu-btn span {
+  display: block;
+  width: 28px; height: 2px;
+  background: var(--bar-color);
+  transition: background 0.4s;
+}
+
+/* ── THEME TOGGLE ── */
+.theme-toggle {
+  position: fixed;
+  top: 22px; right: 26px;
+  z-index: 100;
+  cursor: pointer;
+  background: var(--toggle-bg);
+  border: none;
+  border-radius: 50px;
+  width: 54px; height: 28px;
+  display: flex;
+  align-items: center;
+  padding: 3px;
+  transition: background 0.4s;
+}
+.theme-toggle .knob {
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: var(--toggle-fg);
+  transition: transform 0.35s cubic-bezier(.77,0,.18,1);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; line-height: 1;
+}
+[data-theme="light"] .theme-toggle .knob { transform: translateX(26px); }
+
+/* ── NAV DRAWER ── */
+.nav-drawer {
+  position: fixed;
+  top: 0; left: 0;
+  height: 100%; width: 230px;
+  background: var(--drawer-bg);
+  backdrop-filter: blur(16px);
+  z-index: 90;
+  transform: translateX(-100%);
+  transition: transform 0.45s cubic-bezier(.77,0,.18,1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 44px;
+  gap: 4px;
+  border-right: 1px solid rgba(198,241,53,0.1);
+}
+.nav-drawer.open { transform: translateX(0); }
+.nav-drawer a {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  letter-spacing: 0.14em;
+  color: var(--drawer-text);
+  text-decoration: none;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(128,128,128,0.12);
+  transition: color 0.2s, letter-spacing 0.2s;
+}
+.nav-drawer a:hover { color: var(--neon); letter-spacing: 0.22em; }
+
+.overlay {
+  position: fixed; inset: 0;
+  z-index: 80; display: none;
+}
+.overlay.visible { display: block; background: rgba(0,0,0,0.2); }
+
+/* ── SIGNATURE ── */
+.signature {
+  position: fixed;
+  top: 14px; left: 50%;
+  transform: translateX(-50%);
+  z-index: 50;
+  font-family: 'Dancing Script', cursive;
+  font-style: italic;
+  font-size: 2.3rem;
+  color: var(--sig-color);
+  letter-spacing: 0.04em;
+  transition: color 0.4s;
+  white-space: nowrap;
+}
+.signature::after {
+  content: '';
+  display: block;
+  height: 1.5px;
+  background: var(--neon);
+  width: 70%;
+  margin: 2px auto 0;
+  box-shadow: 0 0 8px var(--neon-glow);
+}
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* BIG neon name — bleeds past the image so letters are visible either side */
+.bg-name {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* gap pulls rows apart so image fits between them visually */
+  gap: -0.05em;
+  line-height: 0.82;
+  user-select: none;
+  pointer-events: none;
+  z-index: 1;
+}
+.bg-name span {
+  font-family: 'Bebas Neue', sans-serif;
+  /* Very large — much wider than the image */
+  font-size: clamp(8rem, 24vw, 22rem);
+  letter-spacing: 0.1em;
+  color: var(--neon);
+  text-shadow:
+    0 0 18px var(--neon-glow),
+    0 0 50px var(--neon-glow),
+    0 0 100px rgba(198,241,53,0.18);
+  display: block;
+  white-space: nowrap;
+  transition: color 0.4s, text-shadow 0.4s;
+}
+
+/* Small image — top & bottom rounded, sides straight */
+.avatar-wrap {
+  position: relative;
+  z-index: 2;
+  width: 115px;
+  height: 155px;
+  animation: fadeUp 1s ease both;
+  flex-shrink: 0;
+}
+.avatar-wrap img {
+  width: 100%;
+  height: 100%;
+  /* rounded top & bottom, flat left & right sides */
+  border-radius: 50% 50% 50% 50% / 38% 38% 38% 38%;
+  object-fit: cover;
+  display: block;
+  box-shadow:
+    0 0 0 2px rgba(198,241,53,0.25),
+    0 8px 40px rgba(0,0,0,0.7);
 }
 
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(24px); }
   to   { opacity: 1; transform: translateY(0); }
-}
-
-.animate-fadeUp {
-  animation: fadeUp 1s ease both;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-}
-
-section {
-  padding: 6rem 0;
-}
-
-.section-title {
-  font-size: 3rem;
-  font-weight: 700;
-  margin-bottom: 3rem;
-  color: var(--accent-color);
-  letter-spacing: -0.05em;
-}
-
-.section-subtitle {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 2rem;
-  color: var(--text-color);
 }
