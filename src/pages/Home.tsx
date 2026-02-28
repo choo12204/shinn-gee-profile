@@ -119,7 +119,7 @@ export default function Home() {
         <div className="section-title">Projects</div>
         <div className="projects-grid">
           {projects.map((project) => (
-            <Link key={project.id} className="project-card" to={`/project/${project.id}`}>
+            <Link key={project.id} className="project-card" to={`/project-${project.id}`}>
               <div className="proj-num">{project.num}</div>
               <h3>{project.title} {project.titleEm}</h3>
               <p>{project.description}</p>

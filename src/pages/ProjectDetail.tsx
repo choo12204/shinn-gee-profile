@@ -141,14 +141,14 @@ export default function ProjectDetail() {
 
         <div className="proj-nav">
           {prevProject ? (
-            <Link to={`/project/${prevProject.id}`}>← Previous Project</Link>
+            <Link to={`/project-${prevProject.id}`}>← Previous Project</Link>
           ) : (
             <span style={{ color: "var(--fg-muted)", fontFamily: "'Bebas Neue'", letterSpacing: "0.14em", fontSize: "1rem" }}>
               — First Project
             </span>
           )}
           {nextProject ? (
-            <Link to={`/project/${nextProject.id}`}>Next Project →</Link>
+            <Link to={`/project-${nextProject.id}`}>Next Project →</Link>
           ) : (
             <span style={{ color: "var(--fg-muted)", fontFamily: "'Bebas Neue'", letterSpacing: "0.14em", fontSize: "1rem" }}>
               Last Project —
