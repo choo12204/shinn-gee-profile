@@ -224,7 +224,7 @@ export default function Component() {
                 delay={100}
                 animateBy="letters"
                 direction="top"
-                className="font-bold text-[100px] sm:text-[140px] md:text-[180px] lg:text-[210px] leading-[0.75] tracking-tighter uppercase justify-center whitespace-nowrap"
+                className="font-bold text-[120px] sm:text-[160px] md:text-[200px] lg:text-[240px] leading-[0.7] tracking-tighter uppercase justify-center whitespace-nowrap"
                 style={{ color: "#C3E41D", fontFamily: "'Fira Code', monospace" }}
               />
             </div>
@@ -234,14 +234,14 @@ export default function Component() {
                 delay={100}
                 animateBy="letters"
                 direction="top"
-                className="font-bold text-[100px] sm:text-[140px] md:text-[180px] lg:text-[210px] leading-[0.75] tracking-tighter uppercase justify-center whitespace-nowrap"
+                className="font-bold text-[120px] sm:text-[160px] md:text-[200px] lg:text-[240px] leading-[0.7] tracking-tighter uppercase justify-center whitespace-nowrap"
                 style={{ color: "#C3E41D", fontFamily: "'Fira Code', monospace" }}
               />
             </div>
 
             {/* Profile Picture */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
-              <div className="w-[65px] h-[110px] sm:w-[90px] sm:h-[152px] md:w-[110px] md:h-[185px] lg:w-[129px] lg:h-[218px] rounded-full overflow-hidden shadow-2xl transition-transform duration-300 hover:scale-110 cursor-pointer">
+              <div className="w-[80px] h-[130px] sm:w-[100px] sm:h-[165px] md:w-[130px] md:h-[215px] lg:w-[150px] lg:h-[250px] rounded-full overflow-hidden shadow-2xl border-4 border-black dark:border-white transition-transform duration-500 hover:scale-105 cursor-pointer">
                 <img
                   src="https://raw.githubusercontent.com/choo12204/my-portfolio/main/IMG_4185.JPG"
                   alt="Shinn Gee Profile"
