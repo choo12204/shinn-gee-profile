@@ -214,66 +214,69 @@ export default function Component() {
       </header>
 
       {/* Hero Section */}
-      <main className="relative min-h-screen flex flex-col">
-        {/* Centered Main Name - Always Perfectly Centered */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full px-4">
-          <div className="relative text-center">
-            <div>
-              <BlurText
-                text="SHINN"
-                delay={100}
-                animateBy="letters"
-                direction="top"
-                className="font-bold text-[100px] sm:text-[140px] md:text-[180px] lg:text-[210px] leading-[0.75] tracking-tighter uppercase justify-center whitespace-nowrap"
-                style={{ color: "#C3E41D", fontFamily: "'Fira Code', monospace" }}
-              />
-            </div>
-            <div>
-              <BlurText
-                text="GEE"
-                delay={100}
-                animateBy="letters"
-                direction="top"
-                className="font-bold text-[100px] sm:text-[140px] md:text-[180px] lg:text-[210px] leading-[0.75] tracking-tighter uppercase justify-center whitespace-nowrap"
-                style={{ color: "#C3E41D", fontFamily: "'Fira Code', monospace" }}
-              />
-            </div>
+      <main className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-20 pb-24">
+        {/* Massive Name - Left Aligned / Dynamic */}
+        <div className="w-full max-w-[1600px] mx-auto px-4 md:px-12 lg:px-24 flex flex-col md:flex-row items-center justify-between z-10">
+          <div className="relative text-left flex-1">
+            <h1 className="font-['Anton'] text-[120px] sm:text-[160px] md:text-[200px] lg:text-[260px] xl:text-[300px] leading-[0.8] tracking-wider uppercase m-0 p-0 drop-shadow-2xl transition-colors duration-300"
+                style={{ color: isDark ? "hsl(0 0% 100%)" : "hsl(0 0% 10%)" }}>
+              SHINN<br/>
+              <span style={{ color: "#C3E41D" }}>GEE</span>
+            </h1>
+            <p className="font-['Oswald'] text-lg sm:text-xl md:text-2xl mt-8 max-w-lg uppercase tracking-widest border-l-4 pl-4 transition-colors duration-300"
+               style={{ 
+                 color: isDark ? "rgb(209 213 219)" : "rgb(75 85 99)",
+                 borderColor: "#C3E41D" 
+               }}>
+              Designing the future of robotics through code.
+            </p>
+          </div>
 
-            {/* Profile Picture */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
-              <div className="w-[65px] h-[110px] sm:w-[90px] sm:h-[152px] md:w-[110px] md:h-[185px] lg:w-[129px] lg:h-[218px] rounded-full overflow-hidden shadow-2xl transition-transform duration-300 hover:scale-110 cursor-pointer">
-                <img
-                  src="https://raw.githubusercontent.com/choo12204/my-portfolio/main/IMG_4185.JPG"
-                  alt="Profile"
-                  className="w-full h-full object-cover"
-                />
-              </div>
+          {/* Profile Picture */}
+          <div className="mt-16 md:mt-0 flex-shrink-0 relative group perspective-1000">
+            <div className="w-[220px] h-[320px] sm:w-[280px] sm:h-[400px] md:w-[400px] md:h-[550px] overflow-hidden shadow-2xl relative z-10 transition-transform duration-700 group-hover:scale-105" 
+                 style={{ 
+                   clipPath: 'polygon(15% 0, 100% 0, 85% 100%, 0% 100%)',
+                   border: `4px solid ${isDark ? '#222' : '#ddd'}`
+                 }}>
+              <img
+                src="https://raw.githubusercontent.com/choo12204/my-portfolio/main/IMG_4185.JPG"
+                alt="Shinn Gee Profile"
+                className="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-700"
+              />
+            </div>
+            {/* Background Accent */}
+            <div className="absolute top-6 left-6 w-[220px] h-[320px] sm:w-[280px] sm:h-[400px] md:w-[400px] md:h-[550px] opacity-80 z-0 transition-transform duration-700 group-hover:translate-x-4 group-hover:translate-y-4" 
+                 style={{ 
+                   backgroundColor: "#C3E41D",
+                   clipPath: 'polygon(15% 0, 100% 0, 85% 100%, 0% 100%)' 
+                 }}>
             </div>
           </div>
         </div>
 
-        {/* Tagline - Proper Distance Below Hero */}
-        <div className="absolute bottom-16 sm:bottom-20 md:bottom-24 lg:bottom-32 xl:bottom-36 left-1/2 -translate-x-1/2 w-full px-6">
-          <div className="flex justify-center">
-            <BlurText
-              text="Designing the future of robotics through code."
-              delay={150}
-              animateBy="words"
-              direction="top"
-              className="text-[15px] sm:text-[18px] md:text-[20px] lg:text-[22px] text-center transition-colors duration-300 text-neutral-500 hover:text-black dark:hover:text-white"
-              style={{ fontFamily: "'Antic', sans-serif" }}
-            />
+        {/* Marquee Separator */}
+        <div className="absolute bottom-6 md:bottom-10 left-0 w-full overflow-hidden py-3 sm:py-4 z-20 border-y-4 shadow-2xl transform -rotate-1 scale-110"
+             style={{ 
+               backgroundColor: "#C3E41D",
+               borderColor: isDark ? "#000" : "#fff" 
+             }}>
+          <div className="whitespace-nowrap flex font-['Anton'] text-black text-3xl sm:text-4xl md:text-5xl tracking-widest uppercase" style={{ animation: "marquee 20s linear infinite" }}>
+            <span className="mx-6">ROBOTICS ENGINEER</span> • <span className="mx-6">CREATIVE DEVELOPER</span> • <span className="mx-6">DESIGNER</span> • <span className="mx-6">INNOVATOR</span> • 
+            <span className="mx-6">ROBOTICS ENGINEER</span> • <span className="mx-6">CREATIVE DEVELOPER</span> • <span className="mx-6">DESIGNER</span> • <span className="mx-6">INNOVATOR</span> •
+            <span className="mx-6">ROBOTICS ENGINEER</span> • <span className="mx-6">CREATIVE DEVELOPER</span> • <span className="mx-6">DESIGNER</span> • <span className="mx-6">INNOVATOR</span> •
+            <span className="mx-6">ROBOTICS ENGINEER</span> • <span className="mx-6">CREATIVE DEVELOPER</span> • <span className="mx-6">DESIGNER</span> • <span className="mx-6">INNOVATOR</span>
           </div>
         </div>
-
-        {/* Scroll Indicator */}
-        <button
-          type="button"
-          className="absolute bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 transition-colors duration-300"
-          aria-label="Scroll down"
-        >
-          <ChevronDown className="w-5 h-5 md:w-8 md:h-8 text-neutral-500 hover:text-black dark:hover:text-white transition-colors duration-300" />
-        </button>
+        
+        {/* CSS for Marquee */}
+        <style dangerouslySetInnerHTML={{__html: `
+          @keyframes marquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+          }
+          .perspective-1000 { perspective: 1000px; }
+        `}} />
       </main>
     </div>
   );
