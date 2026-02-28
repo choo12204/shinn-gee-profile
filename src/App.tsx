@@ -8,8 +8,8 @@ export default function App() {
   return (
     <div className="bg-black text-white">
       <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Bebas+Neue&family=Cormorant+Garamond:wght@300;400;700&display=swap"
         rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@700&family=Antic&display=swap"
       />
       <Hero />
       <About />

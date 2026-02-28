@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Menu, X, ChevronDown } from "lucide-react";
 
 export default function Component() {
   const [isDark, setIsDark] = useState(true);
@@ -8,8 +7,8 @@ export default function Component() {
   const buttonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
-    document.documentElement.classList.add("dark");
-  }, []);
+    document.documentElement.setAttribute("data-theme", isDark ? "dark" : "light");
+  }, [isDark]);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -28,120 +27,96 @@ export default function Component() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [isMenuOpen]);
 
-  const toggleTheme = () => {
-    const newTheme = !isDark;
-    setIsDark(newTheme);
-    if (newTheme) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  };
+  const toggleTheme = () => setIsDark(!isDark);
 
   const menuItems = [
-    { label: "HOME", href: "#" },
-    { label: "ABOUT", href: "#about" },
-    { label: "PROJECTS", href: "#projects" },
-    { label: "CONTACT", href: "#contact" },
+    { label: "About", href: "#about" },
+    { label: "Projects", href: "#projects" },
+    { label: "Skills", href: "#skills" },
+    { label: "Contact", href: "#contact" },
   ];
 
   return (
-    <div 
-      className="h-screen w-full text-foreground transition-colors relative overflow-hidden font-sans flex flex-col items-center justify-center"
-      style={{
-        backgroundColor: isDark ? "#050505" : "#fdfdfd",
-        color: isDark ? "#ffffff" : "#0a0a0a",
-      }}
-    >
-      {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 px-6 py-8 pointer-events-none">
-        <nav className="flex items-center justify-between max-w-screen-2xl mx-auto relative w-full h-full">
-          
-          {/* Menu Button - Top Left - Clickable area enabled */}
-          <div className="relative pointer-events-auto">
-            <button
-              ref={buttonRef}
-              type="button"
-              className="p-3 transition-colors duration-300 z-50 text-neutral-400 hover:text-white bg-transparent"
-              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              {isMenuOpen ? (
-                <X className="w-8 h-8" />
-              ) : (
-                <Menu className="w-8 h-8" />
-              )}
-            </button>
+    <div className="relative">
+      {/* HAMBURGER BUTTON */}
+      <button
+        ref={buttonRef}
+        className="fixed top-[26px] left-[26px] z-[100] cursor-pointer bg-transparent border-none flex flex-col gap-[6px] p-[6px]"
+        onClick={() => setIsMenuOpen(!isMenuOpen)}
+        aria-label="Menu"
+      >
+        <span className="block w-[28px] h-[2px] bg-[var(--bar-color)] transition-colors duration-400" />
+        <span className="block w-[28px] h-[2px] bg-[var(--bar-color)] transition-colors duration-400" />
+        <span className="block w-[28px] h-[2px] bg-[var(--bar-color)] transition-colors duration-400" />
+      </button>
 
-            {isMenuOpen && (
-              <div
-                ref={menuRef}
-                className="absolute top-full left-0 w-[240px] bg-black/95 backdrop-blur-2xl border border-white/10 mt-4 p-10 rounded-2xl z-[100] flex flex-col gap-8 shadow-2xl animate-in fade-in slide-in-from-top-4 duration-300"
-              >
-                {menuItems.map((item) => (
-                  <a
-                    key={item.label}
-                    href={item.href}
-                    className="text-2xl font-bold tracking-[0.2em] text-white/50 hover:text-[#C3E41D] transition-colors duration-300 uppercase"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {item.label}
-                  </a>
-                ))}
-              </div>
-            )}
-          </div>
+      {/* THEME TOGGLE */}
+      <button
+        className="theme-toggle fixed top-[22px] right-[26px] z-[100] cursor-pointer bg-[var(--toggle-bg)] border-none rounded-[50px] w-[54px] h-[28px] flex items-center padding-[3px] transition-colors duration-400"
+        onClick={toggleTheme}
+        aria-label="Toggle theme"
+      >
+        <div 
+          className="knob w-[22px] h-[22px] rounded-full bg-[var(--toggle-fg)] flex items-center justify-center text-[11px] transition-transform duration-350"
+          style={{ transform: isDark ? 'translateX(3px)' : 'translateX(29px)' }}
+        >
+          {isDark ? '🌙' : '☀️'}
+        </div>
+      </button>
 
-          {/* Signature - Top Middle - Absolute Centered in viewport */}
-          <div className="absolute left-1/2 top-0 -translate-x-1/2 text-4xl font-serif font-black italic tracking-tighter pointer-events-auto" style={{ color: isDark ? "#ffffff" : "#0a0a0a" }}>
-            SG
-          </div>
-
-          {/* Theme Toggle - Top Right */}
-          <button
-            type="button"
-            onClick={toggleTheme}
-            className="w-12 h-12 flex items-center justify-center rounded-full hover:bg-white/5 transition-colors pointer-events-auto"
-            aria-label="Toggle theme"
+      {/* NAV DRAWER */}
+      <nav
+        ref={menuRef}
+        className={`nav-drawer fixed top-0 left-0 h-full w-[230px] bg-[var(--drawer-bg)] backdrop-blur-[16px] z-[90] transition-transform duration-450 flex flex-col justify-center pl-[44px] gap-[4px] border-r border-[var(--neon)] border-opacity-10 ${
+          isMenuOpen ? "translate-x-0" : "-translate-x-full"
+        }`}
+      >
+        {menuItems.map((item) => (
+          <a
+            key={item.label}
+            href={item.href}
+            className="font-['Bebas_Neue'] text-[2rem] tracking-[0.14em] text-[var(--drawer-text)] no-underline py-[10px] border-b border-gray-500 border-opacity-10 transition-all duration-200 hover:text-[var(--neon)] hover:tracking-[0.22em]"
+            onClick={() => setIsMenuOpen(false)}
           >
-            <div className={`w-5 h-5 rounded-full transition-all duration-500 ${isDark ? 'bg-white shadow-[0_0_10px_#fff]' : 'bg-black shadow-[0_0_10px_#000]'}`} />
-          </button>
-        </nav>
-      </header>
+            {item.label}
+          </a>
+        ))}
+      </nav>
 
-      {/* Hero Section - Perfect Center Container */}
-      <main className="relative w-full h-full flex flex-col items-center justify-center">
-        
-        {/* Background Bold Text - High Impact & Perfectly Centered */}
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none z-0">
-          <h1 className="font-['Anton'] text-[20vw] leading-none text-white/[0.07] dark:text-white/[0.08] uppercase tracking-tighter whitespace-nowrap">
-            SHINN GEE
-          </h1>
+      {/* OVERLAY */}
+      {isMenuOpen && (
+        <div
+          className="fixed inset-0 bg-black/20 z-[80] transition-opacity duration-400"
+          onClick={() => setIsMenuOpen(false)}
+        />
+      )}
+
+      {/* SIGNATURE */}
+      <div className="fixed top-[14px] left-1/2 -translate-x-1/2 z-[50] font-['Dancing_Script'] italic text-[2.3rem] text-[var(--sig-color)] tracking-[0.04em] transition-colors duration-400 whitespace-nowrap after:content-[''] after:block after:h-[1.5px] after:bg-[var(--neon)] after:w-[70%] after:mx-auto after:mt-[2px] after:shadow-[0_0_8px_var(--neon-glow)]">
+        SG
+      </div>
+
+      <section className="hero min-h-screen flex items-center justify-center relative overflow-hidden">
+        {/* BIG neon name behind image */}
+        <div className="bg-name absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-[-0.05em] leading-[0.82] select-none pointer-events-none z-[1]">
+          <span className="font-['Bebas_Neue'] text-[clamp(8rem,24vw,22rem)] tracking-[0.1em] text-[var(--neon)] shadow-[0_0_18px_var(--neon-glow),0_0_50px_var(--neon-glow),0_0_100px_rgba(198,241,53,0.18)] block whitespace-nowrap transition-all duration-400">
+            SHINN
+          </span>
+          <span className="font-['Bebas_Neue'] text-[clamp(8rem,24vw,22rem)] tracking-[0.1em] text-[var(--neon)] shadow-[0_0_18px_var(--neon-glow),0_0_50px_var(--neon-glow),0_0_100px_rgba(198,241,53,0.18)] block whitespace-nowrap transition-all duration-400">
+            GEE
+          </span>
         </div>
 
-        {/* Centered Oval Portrait - Forced aspect ratio and rounded-full */}
-        <div className="relative z-10 flex flex-col items-center">
-          <div className="w-[280px] h-[420px] sm:w-[340px] sm:h-[510px] md:w-[450px] md:h-[675px] rounded-[200px] sm:rounded-[250px] md:rounded-[300px] overflow-hidden border-[8px] border-white/[0.05] shadow-[0_40px_100px_rgba(0,0,0,0.8)] transition-all duration-1000 hover:scale-[1.02] group">
-            <img
-              src="https://raw.githubusercontent.com/choo12204/my-portfolio/main/IMG_4185.JPG"
-              alt="Shinn Gee Portrait"
-              className="w-full h-full object-cover grayscale contrast-125 group-hover:grayscale-0 transition-all duration-700"
-            />
-          </div>
-          
-          {/* Subtle Tagline Below Oval */}
-          <div className="mt-16 text-center max-w-md px-6">
-            <p className="font-['Oswald'] text-[12px] sm:text-[14px] uppercase tracking-[0.8em] text-white/40 leading-loose">
-              Designing the future of robotics through code.
-            </p>
-          </div>
+        {/* Small rounded-top-bottom image on top */}
+        <div className="avatar-wrap relative z-[2] w-[115px] h-[155px] animate-fadeUp flex-shrink-0">
+          <img
+            src="https://raw.githubusercontent.com/choo12204/my-portfolio/main/IMG_4185.JPG"
+            alt="Shinn Gee"
+            className="w-full h-full object-cover shadow-[0_0_0_2px_rgba(198,241,53,0.25),0_8px_40px_rgba(0,0,0,0.7)]"
+            style={{ borderRadius: "50% 50% 50% 50% / 38% 38% 38% 38%" }}
+          />
         </div>
-
-        {/* Bottom Scroll Hint */}
-        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 animate-bounce opacity-30">
-          <ChevronDown className="w-10 h-10 text-[#C3E41D]" />
-        </div>
-      </main>
+      </section>
     </div>
   );
 }
